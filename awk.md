@@ -23,33 +23,6 @@ END { acciones al final de la lectura de datos }
 
 ![Portada del libro «Effective AWK»](data/curso-awk/awk-program.jpg ){align="center" width="70%"}
 
-# El programa por defecto
-
-La condición por defecto es `1` (verdadero).
-
-La acción por defecto es `{ print }`.
-
-La variable por defecto en funciones es `$0` (toda la línea).
-
-El programa por defecto imprime todo tu archivo: `1 { print $0 }`
-
-# Ejemplos
-
-- ¿Cuántas lineas tiene tu archivo? `END { print NR }`
-
-- ¿Cuántos campos tiene cada línea `{ print NF }`
-
-- ¿Qué tiene la décima línea? `NR == 10`
-
-- ¿El último campo de cada línea? `{print $NF}`
-
-- ¿El último campo de la última línea? `{n = $NF} END {print n}`
-
-- ¿Quién tiene más de 4 líneas? `NF > 4`
-
-- ¿Cuántas líneas dicen «P53»? \
-    `/P53/ { n = n + 1 } END { print n }`
-
 # Variables útiles
 
 ---------------------------------------   ---------------------------------------
@@ -74,13 +47,39 @@ Field 1
 - Usar un separador diferente de campos: \
     `BEGIN {FS=":"; OFS="\t"} {$1 = $1; print}`
 
+# El programa por defecto
+
+La condición por defecto es `1` (verdadero).
+
+La acción por defecto es `{ print }`.
+
+La variable por defecto en funciones es `$0` (toda la línea).
+
+El programa más corto, imprime todo tu archivo: `1`
+
+# Ejemplos
+
+- ¿Cuántas lineas tiene tu archivo? `END { print NR }`
+
+- ¿Cuántos campos tiene cada línea `{ print NF }`
+
+- ¿Qué tiene la décima línea? `NR == 10`
+
+- ¿El último campo de cada línea? `{print $NF}`
+
+- ¿El último campo de la última línea? `{n = $NF} END {print n}`
+
+- ¿Quién tiene más de 4 líneas? `NF > 4`
+
+- ¿Cuántas líneas dicen «P53»? \
+    `/P53/ { n = n + 1 } END { print n }`
+
 # Expresiones regulares
 
 > Si tienes un problema y piensas que puedes resolverlo con expresiones regulares
 > entonces tienes dos problemas
 
 ![](data/curso-awk/xkcd.png )
-
 
 # Expresiones regulares
 
@@ -91,12 +90,12 @@ Las expresiones regulares (regexp) son un lenguaje para expresar patrones.
 
 # Referencias
 
-http://orca.phys.uvic.ca/rsocs/wirth/faq/awk-oneliners.html
+- [Ejemplos de awk](http://tuxgraphics.org/~guido/scripts/awk-one-liner.html ).
 
-http://tuxgraphics.org/~guido/scripts/awk-one-liner.html
+- [Más ejemplos](http://orca.phys.uvic.ca/rsocs/wirth/faq/awk-oneliners.html ).
 
-https://www.debuggex.com/
+- [Un sitio para mostrar gráficamente expresiones regulares](https://www.debuggex.com/ ).
 
-https://www.lunametrics.com/regex-book/Regular-Expressions-Google-Analytics.pdf
+- [Un libro explicando expresiones regulares](https://www.lunametrics.com/regex-book/Regular-Expressions-Google-Analytics.pdf ).
 
-http://www.visibone.com/regular-expressions/
+- [De aquí salen las imágenes que explican las expresiones regulares.](http://www.visibone.com/regular-expressions/ ).
